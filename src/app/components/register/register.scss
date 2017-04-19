@@ -1,0 +1,19 @@
+@import "../../common/common";
+
+register {
+    
+    h1 {
+        color: $lightTextColor;
+        font-size: 2rem;
+        margin: 0;
+    }
+
+    md-input-container {
+        display: block;
+    }
+
+    .login-wrapper {
+        margin: 0 auto;
+        max-width: 600px;
+    }
+}

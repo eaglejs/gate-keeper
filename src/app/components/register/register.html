@@ -1,0 +1,38 @@
+<h1>Register</h1>
+
+<form data-ng-submit="registerCtrl.register()" layout="column" ng-cloak class="md-inline-form login-wrapper">
+    <md-content md-theme="docs-dark" layout-gt-lg="row" layout-padding>
+        <div>
+            <md-input-container>
+                <label for="name">Name</label>
+                <input id="name" type="text" data-ng-model="registerCtrl.model.name" required data-ng-required/>
+            </md-input-container>
+        </div>
+        <div>
+            <md-input-container>
+                <label for="email">Email</label>
+                <input id="email" type="email" data-ng-model="registerCtrl.model.email" required data-ng-required/>
+            </md-input-container>
+        </div>
+        <div>
+            <md-input-container>
+                <label for="username">Username</label>
+                <input id="username" type="text" data-ng-model="registerCtrl.model.username" required data-ng-required/>
+            </md-input-container>
+        </div>
+        <div>
+            <md-input-container>
+                <label for="password">Password</label>
+                <input id="password" type="password" data-ng-model="registerCtrl.model.password" required data-ng-required/>
+            </md-input-container>
+        </div><div>
+            <md-input-container>
+                <label for="confirm-password">Confirm Password</label>
+                <input id="confirm-password" type="password" data-ng-model="registerCtrl.model.confirmPassword" required data-ng-required/>
+            </md-input-container>
+        </div>
+        <div class="text-right">
+            <md-button type="submit" class="md-raised md-primary">Register</md-button>
+        </div>
+    </md-content>
+</form>
