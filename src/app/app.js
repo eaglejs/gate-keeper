@@ -14,7 +14,7 @@ angular.module('app', [
         "ngInject";
 
         $mdThemingProvider.theme('docs-dark', 'default')
-            .primaryPalette('yellow')
+            .primaryPalette('amber')
             .dark();
 
         // $locationProvider.html5Mode(true).hashPrefix('!');

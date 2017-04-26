@@ -1,8 +1,9 @@
 class RegisterController {
-    constructor($http, $state) {
+    constructor($http, $state, userService) {
         this.name = 'register';
         this.$http = $http;
         this.$state = $state;
+        this.userService = userService;
 
         this.model = {
             email: '',
@@ -26,6 +27,6 @@ class RegisterController {
     }
 }
 
-RegisterController.$inject = ['$http', '$state'];
+RegisterController.$inject = ['$http', '$state', 'userService'];
 
 export default RegisterController;
