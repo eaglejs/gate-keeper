@@ -3,7 +3,9 @@
         <md-button class="md-icon-button" aria-label="Settings" data-ng-if="toolbarCtrl.userService.user.username">
             <md-icon class="material-icon">menu</md-icon>
         </md-button>
-        <span flex=""></span>
+        <span flex="">
+            <h1>{{toolbarCtrl.currentPage}}</h1>
+        </span>
         <md-button class="md-icon-button" aria-label="More" data-ng-click="toolbarCtrl.showToolbarMenu($event, toolbarCtrl.more)" data-ng-if="toolbarCtrl.userService.user.username">
             <md-icon class="material-icon">more_vert</md-icon>
         </md-button>

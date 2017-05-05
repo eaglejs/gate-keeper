@@ -2,7 +2,7 @@ import PanelController from './panel/panel.controller';
 import PanelTemplate from './panel/panel.html';
 
 class toolbarController {
-    constructor($mdPanel, $http, userService) {
+    constructor($mdPanel, $http, $location, $state, userService, toolbarService) {
         this.name = 'toolbar';
         this.$mdPanel = $mdPanel;
         this.$http = $http;
@@ -24,6 +24,8 @@ class toolbarController {
                 }
             ]
         };
+        
+        this.currentPage = toolbarService.currentPage;
 
         $mdPanel.newPanelGroup('menus', {
             maxOpen: 3
@@ -66,6 +68,6 @@ class toolbarController {
 
 }
 
-toolbarController.$inject = ['$mdPanel', '$http', 'userService'];
+toolbarController.$inject = ['$mdPanel', '$http', '$location', '$state', 'userService', 'toolbarService'];
 
 export default toolbarController;

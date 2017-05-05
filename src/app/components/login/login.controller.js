@@ -6,7 +6,7 @@ const internal = function internal(object) {
 }
 
 class LoginController {
-    constructor($http, $location, userService) {
+    constructor($http, $location, userService, toolbarService) {
         this.name = 'login';
         this.$http = $http;
         this.$location = $location;
@@ -15,7 +15,10 @@ class LoginController {
         this.model = {
             username: '',
             password: ''
-        }
+        };
+
+        toolbarService.currentPage = "Login";
+
     }
 
     login() {
@@ -33,6 +36,6 @@ class LoginController {
 
 }
 
-LoginController.$inject = ['$http', '$location', 'userService'];
+LoginController.$inject = ['$http', '$location', 'userService', 'toolbarService'];
 
 export default LoginController;

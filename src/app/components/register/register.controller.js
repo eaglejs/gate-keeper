@@ -1,5 +1,5 @@
 class RegisterController {
-    constructor($http, $state, userService) {
+    constructor($http, $state, userService, toolbarService) {
         this.name = 'register';
         this.$http = $http;
         this.$state = $state;
@@ -12,6 +12,8 @@ class RegisterController {
             password: '',
             confirmPassword: ''
         }
+
+        toolbarService.currentPage = "Register";
     }
 
     register() {
@@ -27,6 +29,6 @@ class RegisterController {
     }
 }
 
-RegisterController.$inject = ['$http', '$state', 'userService'];
+RegisterController.$inject = ['$http', '$state', 'userService', 'toolbarService'];
 
 export default RegisterController;

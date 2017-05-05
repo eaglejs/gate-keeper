@@ -6,7 +6,7 @@ const internal = function internal(object) {
 }
 
 class HomeController {
-	constructor($scope, $http, $state, userService) {
+	constructor($scope, $http, $state, userService, toolbarService) {
         this.name = 'home';
         this.$scope = $scope;
         this.$http = $http;
@@ -14,6 +14,8 @@ class HomeController {
         this.userService = userService;
 
         this.model = userService.user;
+
+        toolbarService.currentPage = "Home";
 
         this.init();
 	}
@@ -26,6 +28,6 @@ class HomeController {
     }
 }
 
-HomeController.$inject = ['$scope', '$http', '$state', 'userService'];
+HomeController.$inject = ['$scope', '$http', '$state', 'userService', 'toolbarService'];
 
 export default HomeController;
