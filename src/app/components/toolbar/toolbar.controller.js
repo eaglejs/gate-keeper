@@ -15,6 +15,10 @@ class toolbarController {
                     click: ''
                 },
                 {
+                    name: 'Add Users',
+                    click: 'register'
+                },
+                {
                     name: 'Sign Out',
                     click: 'logout'
                 }
@@ -24,10 +28,6 @@ class toolbarController {
         $mdPanel.newPanelGroup('menus', {
             maxOpen: 3
         });
-    }
-
-    isLoggedIn() {
-        return this.userService.user.username;
     }
 
     showToolbarMenu($event, menu) {
@@ -53,6 +53,7 @@ class toolbarController {
             },
             openFrom: $event,
             focusOnOpen: false,
+            clickOutsideToClose: true,
             zIndex: 100,
             propagateContainerEvents: true,
             groupName: ['toolbar', 'menus']

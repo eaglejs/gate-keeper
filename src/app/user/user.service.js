@@ -2,7 +2,6 @@ class UserService {
     constructor($http) {
         this.user = {};
         this.$http = $http;
-        this.isLoggedIn;
         this.isRegistered;
     }
 

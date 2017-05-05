@@ -11,7 +11,12 @@ let registerModule = angular.module('register', [
         $stateProvider
             .state('register', {
                 url: '/register',
-                component: 'register'
+                component: 'register',
+                resolve: {
+                    user: function ($http, $state, userService) {
+                        return userService.getUserInformation();
+                    }
+                }
             });
             
         $urlRouterProvider.otherwise('/login');

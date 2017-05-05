@@ -18,6 +18,10 @@ class PanelController {
         this.closeMenu();
     }
 
+    register() {
+        this.$state.go('register');
+    }
+
     logout() {
         this.$http({
             url: '/rest/logout',
