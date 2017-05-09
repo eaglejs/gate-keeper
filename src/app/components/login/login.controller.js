@@ -11,7 +11,8 @@ class LoginController {
         this.$http = $http;
         this.$location = $location;
         this.userService = userService;
-
+        
+        
         this.model = {
             username: '',
             password: ''
