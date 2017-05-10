@@ -17,6 +17,11 @@
         <h2 class="md-toolbar-tools">Gate Keeper</h2>
     </md-toolbar>
     <md-content layout-padding="" ng-controller="LeftCtrl">
-        <md-button data-ng-click="toolbarCtrl.goToDashboard()" class="md-primary">Dashboard</md-button>
+        <div>
+            <md-button data-ng-click="toolbarCtrl.goToDashboard()" class="md-primary"><md-icon class="material-icon">dashboard</md-icon> Dashboard</md-button>
+        </div>
+        <div>
+            <md-button data-ng-click="toolbarCtrl.goToDashboard()" class="md-primary"><md-icon class="material-icon">add_circle</md-icon> Add Garages</md-button>
+        </div>
     </md-content>
 </md-sidenav>
