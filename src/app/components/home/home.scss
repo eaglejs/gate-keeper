@@ -1,14 +1,26 @@
-
-$text: rgba(255, 255, 255, 1);
+@import "../../common/common";
 
 h1 {
-    color: $text;
+    color: $lightTextColor;
     text-align: center;
     margin: 0;
 
 }
 
 p {
-    color: $text;
+    color: $lightTextColor;
     text-align: center;
+}
+
+.flex-wrapper {
+    display: flex;
+
+    .flex-item {
+        flex: 1;
+    }
+
+    .flex-item:first-child {
+        flex: 0;
+        width: 300px;
+    }
 }

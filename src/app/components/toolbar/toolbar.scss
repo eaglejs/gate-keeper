@@ -1,9 +1,16 @@
+@import "../../common/common";
+
 toolbar {
 
     h1 {
-        color: rgba(0,0,0,0.87);
+        color: $darkTextColor;
     }
-    
+
+    md-sidenav {
+        h2 {
+            color: $darkTextColor;
+        }
+    }
 }
 
 .menu-panel-container {
@@ -12,7 +19,7 @@ toolbar {
 
 .menu-panel {
     width: 256px;
-    background-color: #fff;
+    background-color: $lightTextColor;
     border-radius: 4px;
 }
 
@@ -55,7 +62,7 @@ toolbar {
 .menu-panel .menu-item > .md-button {
     display: inline-block;
     border-radius: 0;
-    color: #333;
+    color: $darkTextColor;
     margin: auto 0;
     font-size: 15px;
     text-transform: none;
@@ -78,7 +85,7 @@ toolbar {
     margin: auto;
 }
 .menu-panel .menu-item > .md-button span {
-    color: #333;
+    color: $darkTextColor;
     margin-top: auto;
     margin-bottom: auto;
 }

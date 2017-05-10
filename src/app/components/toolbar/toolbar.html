@@ -12,14 +12,11 @@
         </md-button>
     </div>
 </md-toolbar>
-<md-sidenav md-theme="docs-dark" class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
+<md-sidenav md-theme="docs-dark" class="md-sidenav-left" md-component-id="left" md-whiteframe="4" data-ng-if="toolbarCtrl.userService.user.username">
     <md-toolbar class="md-theme-indigo">
         <h2 class="md-toolbar-tools">Gate Keeper</h2>
     </md-toolbar>
     <md-content layout-padding="" ng-controller="LeftCtrl">
-        <md-button data-ng-click="toolbarCtrl.goToDashboard()">Dashboard</md-button>
-        <md-button ng-click="close()" class="md-primary" hide-gt-md="">
-            Close Sidenav Left
-        </md-button>
+        <md-button data-ng-click="toolbarCtrl.goToDashboard()" class="md-primary">Dashboard</md-button>
     </md-content>
 </md-sidenav>
