@@ -29,7 +29,7 @@ class toolbarController {
             ]
         };
         this.toggleLeft = this.buildDelayedToggler('left');
-        this.isOpenRight = function () {
+        this.isOpenRight = () => {
             return $mdSidenav('right').isOpen();
         };
 
@@ -40,8 +40,8 @@ class toolbarController {
         });
     }
 
-    goToDashboard() {
-        this.$state.go('home');
+    goTo(state) {
+        this.$state.go(state);
     }
 
     /**
@@ -55,7 +55,7 @@ class toolbarController {
             var context = this,
                 args = Array.prototype.slice.call(arguments);
             this.$timeout.cancel(timer);
-            timer = this.$timeout(function () {
+            timer = this.$timeout( () => {
                 timer = undefined;
                 func.apply(context, args);
             }, wait || 10);
@@ -67,22 +67,22 @@ class toolbarController {
      * report completion in console
      */
     buildDelayedToggler(navID) {
-        return this.debounce(function () {
+        return this.debounce( () => {
             // Component lookup should always be available since we are not using `ng-if`
             this.$mdSidenav(navID)
                 .toggle()
-                .then(function () {
+                .then( () => {
                     this.$log.debug("toggle " + navID + " is done");
                 }.bind(this));
         }.bind(this), 200);
     }
 
     buildToggler(navID) {
-        return function () {
+        return () => {
             // Component lookup should always be available since we are not using `ng-if`
             this.$mdSidenav(navID)
                 .toggle()
-                .then(function () {
+                .then( () => {
                     this.$log.debug("toggle " + navID + " is done");
                 }.bind(this));
         }.bind(this);

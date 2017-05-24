@@ -5,9 +5,9 @@ const internal = function internal(object) {
     return map.get(object);
 }
 
-class HomeController {
+class dashboardController {
 	constructor($scope, $http, $state, userService, toolbarService) {
-        this.name = 'home';
+        this.name = 'dashboard';
         this.$scope = $scope;
         this.$http = $http;
         this.$state = $state;
@@ -15,19 +15,18 @@ class HomeController {
 
         this.model = userService.user;
 
-        toolbarService.currentPage = "Home";
+        toolbarService.currentPage = 'Dashboard';
 
         this.init();
 	}
 
     init () {
-        let that = this;
         this.$scope.$on('$viewContentLoaded', () => { 
-            that.model = that.userService.user;
-        });
+            this.model = this.userService.user;
+        }.bind(this));
     }
 }
 
-HomeController.$inject = ['$scope', '$http', '$state', 'userService', 'toolbarService'];
+dashboardController.$inject = ['$scope', '$http', '$state', 'userService', 'toolbarService'];
 
-export default HomeController;
+export default dashboardController;

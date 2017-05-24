@@ -13,7 +13,7 @@ let registerModule = angular.module('register', [
                 url: '/register',
                 component: 'register',
                 resolve: {
-                    user: function ($http, $state, userService) {
+                    user: ($http, $state, userService) => {
                         return userService.getUserInformation();
                     }
                 }

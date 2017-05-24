@@ -1,10 +1,12 @@
-import Home from './home/home';
+import Dashboard from './dashboard/dashboard';
+import Garage from './garages/garage';
 import Register from './register/register';
 import Login from './login/login';
 import Toolbar from './toolbar/toolbar';
 
 let componentModule = angular.module('app.components', [
-    Home,
+    Dashboard,
+    Garage,
     Register,
     Login,
     Toolbar

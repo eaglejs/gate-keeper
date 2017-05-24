@@ -47,7 +47,7 @@ angular.module('app', [
                         if (routeIsClean($location.url(), routesAfterInitialSignup) && user) {
                             event.preventDefault();
                             $timeout(() => {
-                                $location.path('/home');
+                                $location.path('/dashboard');
                             }, 0);
                         } else if (!routeIsClean($location.url(), routesAfterInitialSignup) && !user) {
                             event.preventDefault();

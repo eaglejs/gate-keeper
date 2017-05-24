@@ -13,11 +13,11 @@ let loginModule = angular.module('login', [
                 component: 'login'
             });
     })
-    .controller('LeftCtrl', function ($scope, $timeout, $mdSidenav, $log) {
-        $scope.close = function () {
+    .controller('LeftCtrl', ($scope, $timeout, $mdSidenav, $log) => {
+        $scope.close = () => {
             // Component lookup should always be available since we are not using `ng-if`
             $mdSidenav('left').close()
-                .then(function () {
+                .then( () => {
                     $log.debug("close LEFT is done");
                 });
 

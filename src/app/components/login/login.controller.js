@@ -29,7 +29,7 @@ class LoginController {
             url: '/rest/login',
         }).then(function successCallBack(response) {
             this.userService.setUser(response.data);
-            this.$location.path('/home');
+            this.$location.path('/dashboard');
         }.bind(this), function errorCallback(error) {
             console.log(error);
         });

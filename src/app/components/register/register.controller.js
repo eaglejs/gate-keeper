@@ -22,7 +22,7 @@ class RegisterController {
             url: '/rest/register',
             data: this.model,
         }).then(function successCallback(response) {
-            this.$state.go('home');
+            this.$state.go('dashboard');
         }.bind(this), function errorCallback(response) {
             console.log('error');
         });
