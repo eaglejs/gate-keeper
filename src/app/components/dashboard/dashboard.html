@@ -1,8 +1,13 @@
 <toolbar></toolbar>
 <div layout="column" ng-cloak class="md-inline-form login-wrapper flex-wrapper">
-    <div class="flex-item"></div>
-    <md-content class="flex-item" md-theme="docs-dark" layout-gt-lg="row" layout-padding>
-        <h2>{{dashboardCtrl.model.name}} | {{dashboardCtrl.model.username}}</h2>
-        <h3>{{dashboardCtrl.model.email}}</h3>
+    <md-content md-theme="docs-dark" layout-gt-lg="row" layout-padding>
+        <div class="flex-item"></div>
+        <md-content class="flex-item" md-theme="docs-dark" layout-gt-lg="row" layout-padding>
+            <h2>{{dashboardCtrl.model.name}} | {{dashboardCtrl.model.username}}</h2>
+            <h3>{{dashboardCtrl.model.email}}</h3>
+        </md-content>
+        <div class="text-center">
+            <md-button type="submit" class="md-raised md-primary" data-ng-click="dashboardCtrl.toggleGarageDoor()">Open/Close Garage Door</md-button>
+        </div>
     </md-content>
 </div>

@@ -21,7 +21,7 @@ class garageController {
     init () {
         this.$scope.$on('$viewContentLoaded', () => { 
             this.model = this.userService.user;
-        }.bind(this));
+        });
     }
 }
 
