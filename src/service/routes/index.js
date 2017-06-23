@@ -1,20 +1,23 @@
 var express = require('express');
 var router = express.Router();
 var mid = require('../middleware');
-var gpio = require('rpi-gpio');
+//var gpio = require('rpi-gpio');
 var Users = require('../models/users');
 var User = require('../models/user');
 var GarageDoors = require('../models/garage.doors');
 
 // POST /toggleGarageDoor
 router.post('rest/toggleGarageDoor', function (req, res, next) {
-    gpio.setup(7, gpio.DIR_IN, readInput);
+    res.status(200).json({
+        success: true
+    })
+    // gpio.setup(7, gpio.DIR_IN, readInput);
  
-    function readInput() {
-        gpio.read(7, function(err, value) {
-            console.log('The value is ' + value);
-        });
-    }
+    // function readInput() {
+    //     gpio.read(7, function(err, value) {
+    //         console.log('The value is ' + value);
+    //     });
+    // }
 });
 
 // POST /login
