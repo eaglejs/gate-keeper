@@ -1,9 +1,21 @@
 var express = require('express');
 var router = express.Router();
+var mid = require('../middleware');
+var gpio = require('rpi-gpio');
 var Users = require('../models/users');
 var User = require('../models/user');
 var GarageDoors = require('../models/garage.doors');
-var mid = require('../middleware');
+
+// POST /toggleGarageDoor
+router.post('rest/toggleGarageDoor', function (req, res, next) {
+    gpio.setup(7, gpio.DIR_IN, readInput);
+ 
+    function readInput() {
+        gpio.read(7, function(err, value) {
+            console.log('The value is ' + value);
+        });
+    }
+});
 
 // POST /login
 router.post('/rest/login', function (req, res, next) {
