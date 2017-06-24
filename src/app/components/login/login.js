@@ -1,4 +1,4 @@
-import uiRouter from 'angular-ui-router';
+import uiRouter from '@uirouter/angularjs';
 import LoginComponent from './login.component';
 
 let loginModule = angular.module('login', [

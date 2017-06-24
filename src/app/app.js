@@ -22,7 +22,7 @@ angular.module('app', [
 
     .component('app', AppComponent)
     .service('userService', UserService)
-    .run(($transitions, $location, $rootScope, $state, $timeout, userService) => {
+    .run(($location, $rootScope, $state, $timeout, userService) => {
         // enumerate routes that don't need authentication
         let routesThatDontRequireAuth = ['/login', '/register'];
         let routesAfterInitialSignup = ['/login'];
@@ -46,20 +46,14 @@ angular.module('app', [
                     userService.checkLogin().then((user) => {
                         if (routeIsClean($location.url(), routesAfterInitialSignup) && user) {
                             event.preventDefault();
-                            $timeout(() => {
-                                $location.path('/dashboard');
-                            }, 0);
+                            $state.go('dashboard');
                         } else if (!routeIsClean($location.url(), routesAfterInitialSignup) && !user) {
                             event.preventDefault();
-                            $timeout(() => {
-                                $location.path('/login');
-                            }, 0);
-                        }
+                            $state.go('login');
+                        } 
                     });
                 } else {
-                    $timeout(() => {
-                        $location.path('/register');
-                    }, 0);
+                    $state.go('register');
                 }
             });
 

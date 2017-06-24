@@ -2,7 +2,7 @@ import PanelController from './panel/panel.controller';
 import PanelTemplate from './panel/panel.html';
 
 class toolbarController {
-    constructor($mdPanel, $http, $location, $state, $timeout, $log, $mdSidenav, userService, toolbarService) {
+    constructor($mdPanel, $http, $state, $timeout, $log, $mdSidenav, userService, toolbarService) {
         this.name = 'toolbar';
         this.$mdPanel = $mdPanel;
         this.$http = $http;
@@ -73,8 +73,8 @@ class toolbarController {
                 .toggle()
                 .then( () => {
                     this.$log.debug("toggle " + navID + " is done");
-                }.bind(this));
-        }.bind(this), 200);
+                });
+        }, 200);
     }
 
     buildToggler(navID) {
@@ -84,8 +84,8 @@ class toolbarController {
                 .toggle()
                 .then( () => {
                     this.$log.debug("toggle " + navID + " is done");
-                }.bind(this));
-        }.bind(this);
+                });
+        };
     }
 
     showToolbarMenu($event, menu) {
@@ -124,6 +124,6 @@ class toolbarController {
 
 }
 
-toolbarController.$inject = ['$mdPanel', '$http', '$location', '$state', '$timeout', '$log', '$mdSidenav', 'userService', 'toolbarService'];
+toolbarController.$inject = ['$mdPanel', '$http', '$state', '$timeout', '$log', '$mdSidenav', 'userService', 'toolbarService'];
 
 export default toolbarController;

@@ -6,10 +6,10 @@ const internal = function internal(object) {
 }
 
 class LoginController {
-    constructor($http, $location, userService, toolbarService) {
+    constructor($http, $state, userService, toolbarService) {
         this.name = 'login';
         this.$http = $http;
-        this.$location = $location;
+        this.$state = $state;
         this.userService = userService;
         
         
@@ -29,7 +29,7 @@ class LoginController {
             url: '/rest/login',
         }).then(function successCallBack(response) {
             this.userService.setUser(response.data);
-            this.$location.path('/dashboard');
+            this.$state.go('dashboard');
         }.bind(this), function errorCallback(error) {
             console.log(error);
         });
@@ -37,6 +37,6 @@ class LoginController {
 
 }
 
-LoginController.$inject = ['$http', '$location', 'userService', 'toolbarService'];
+LoginController.$inject = ['$http', '$state', 'userService', 'toolbarService'];
 
 export default LoginController;
