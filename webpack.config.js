@@ -75,12 +75,12 @@ module.exports = {
         stats: {
             color: true
         },
-        port: 8080,
+        port: 8081,
         inline: true,
         outputPath: 'build/',
         contentBase: 'build/',
         proxy: {
-            '*': 'http://localhost:8081'
+            '*': 'http://0.0.0.0:8082'
         }
     }
 };
