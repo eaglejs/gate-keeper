@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --hot",
-    "start-fe": "webpack-dev-server --hot --host 192.168.86.46:8080",
+    "start-fe": "webpack-dev-server --hot --public 192.168.86.46:8080",
     "start-be": "node ./src/service/app.js"
   },
   "author": "Joshua S. Eagle",
