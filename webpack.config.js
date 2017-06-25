@@ -75,10 +75,12 @@ module.exports = {
         stats: {
             color: true
         },
+        public: 'http://192.168.86.46',
         port: 8080,
         inline: true,
         outputPath: 'build/',
         contentBase: 'build/',
+        disableHostCheck: true,
         proxy: {
             '*': 'http://0.0.0.0:8082'
         }
