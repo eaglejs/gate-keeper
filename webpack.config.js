@@ -75,7 +75,7 @@ module.exports = {
         stats: {
             color: true
         },
-        port: 8081,
+        port: 8080,
         inline: true,
         outputPath: 'build/',
         contentBase: 'build/',
