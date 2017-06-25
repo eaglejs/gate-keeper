@@ -4,7 +4,8 @@
   "description": "Open and Close Garage Door with Raspberry Pi using MEAN Stack",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --hot --host 0.0.0.0",
+    "start": "webpack-dev-server --hot",
+    "start-fe": "webpack-dev-servier --hot --public 192.168.86.46:8080",
     "start-be": "node ./src/service/app.js"
   },
   "author": "Joshua S. Eagle",
