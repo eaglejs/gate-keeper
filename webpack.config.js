@@ -75,7 +75,8 @@ module.exports = {
         stats: {
             color: true
         },
-        public: 'http://192.168.86.46',
+        host: '0.0.0.0',
+        public: 'http://192.168.86.46:8080',
         port: 8080,
         inline: true,
         outputPath: 'build/',
