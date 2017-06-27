@@ -11,9 +11,7 @@ router.post('rest/toggleGarageDoor', function (req, res, next) {
 
     var test = new gpio(17, {mode: Gpio.OUTPUT});
 
-    res.status(200).json({
-        success: true
-    })
+    res.status(200).json(test);
     // gpio.setup(7, gpio.DIR_IN, readInput);
  
     // function readInput() {
