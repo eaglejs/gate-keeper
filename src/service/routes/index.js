@@ -1,13 +1,16 @@
 var express = require('express');
 var router = express.Router();
 var mid = require('../middleware');
-var gpio = require('pigpio');
+var gpio = require('pigpio').Gpio;
 var Users = require('../models/users');
 var User = require('../models/user');
 var GarageDoors = require('../models/garage.doors');
 
 // POST /toggleGarageDoor
 router.post('rest/toggleGarageDoor', function (req, res, next) {
+
+    var test = new gpio(17, {mode: Gpio.OUTPUT});
+
     res.status(200).json({
         success: true
     })
