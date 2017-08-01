@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 var app = express();
+var routes = require('./routes/index');
 
 // mongodb connection
 mongoose.connect("mongodb://localhost:27017/gatekeeper");
@@ -32,7 +33,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // include routes
-var routes = require('./routes/index');
 app.use('/', routes);
 
 // catch 404 and forward to error handler
