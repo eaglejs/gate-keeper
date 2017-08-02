@@ -4,7 +4,13 @@ var mongoose = require('mongoose');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 var app = express();
-var routes = require('./routes/index');
+
+var routes = [
+    require('./routes/login'),
+    require('./routes/register'),
+    require('./routes/toggle-garage-door'),
+    require('./routes/user-info')
+];
 
 // mongodb connection
 mongoose.connect("mongodb://localhost:27017/gatekeeper");
@@ -33,7 +39,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // include routes
-app.use('/', routes);
+//app.use('/', routes);
+[].forEach.call(routes, function (route) {
+    app.use('/', route);
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

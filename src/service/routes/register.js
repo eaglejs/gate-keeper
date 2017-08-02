@@ -1,84 +1,6 @@
-let express = require('express');
-let router = express.Router();
-let mid = require('../middleware');
-let Users = require('../models/users');
-let User = require('../models/user');
-let GarageDoors = require('../models/garage.doors');
-
-// POST /login
-router.post('/rest/login', function (req, res, next) {
-
-    if (!!(req.body.username && req.body.password)) {
-        User.authenticate(req.body.username, req.body.password, function (error, user) {
-            if (error || !user) {
-                res.status(403).json({
-                    error: error
-                });
-            } else {
-                req.session.userId = user._id;
-                res.json({
-                    username: user.username,
-                    name: user.name,
-                    email: user.email,
-                    role: user.role
-                });
-            }
-        });
-    } else {
-        var err = new Error('Email and password are required.');
-        err.status = 401;
-        return next(err);
-    }
-});
-
-// GET /logout
-router.get('/rest/logout', function (req, res, next) {
-    if (req.session) {
-        // delete session object
-        req.session.destroy(function (err) {
-            if (err) {
-                return next(err);
-            } else {
-                return res.status(200).json({ loggedIn: false });
-            }
-        });
-    }
-});
-
-// POST /isLoggedIn
-router.post('/rest/isLoggedIn', function (req, res, next) {
-    if (req.session && req.session.userId) {
-        User.findById(req.session.userId)
-            .exec(function (error, user) {
-                if (error) {
-                    res.json({
-                        message: 'You must be logged in to access the application.'
-                    });
-                } else {
-                    res.json({
-                        username: user.username,
-                        name: user.name,
-                        email: user.email,
-                        role: user.role
-                    });
-                }
-            });
-    } else {
-        res.send({
-            error: "You must be logged in to access the application"
-        });
-    }
-});
-
-// POST /isRegistered
-router.post('/rest/isRegistered', function (req, res, next) {
-    // TO-DO: Check if there are users in the collection.
-
-    User.find().exec(function (error, data) {
-        data.length ? res.json({ isRegistered: true }) : res.json({ isRegistered: false });
-    });
-
-});
+var express = require('express');
+var router = express.Router();
+var User = require('../models/user');
 
 // POST /register
 router.post('/rest/register', function (req, res, next) {
@@ -177,7 +99,15 @@ router.post('/rest/register', function (req, res, next) {
 
         }
     });
+});
 
+// POST /isRegistered
+router.post('/rest/isRegistered', function (req, res, next) {
+    // TO-DO: Check if there are users in the collection.
+
+    User.find().exec(function (error, data) {
+        data.length ? res.json({ isRegistered: true }) : res.json({ isRegistered: false });
+    });
 
 });
 

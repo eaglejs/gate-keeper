@@ -23,7 +23,8 @@ router.post('/rest/getUserInformation', function (req, res, next) {
     } else {
         res.status(403).json({
             message: 'Error(102): You must be logged in to access the application.'
-        })
-            ;
+        });
     }
 });
+
+module.exports = router;

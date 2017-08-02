@@ -1,28 +1,13 @@
-let routerController = require('./index');
+var express = require('express');
+var router = express.Router();
+var User = require('../models/user');
+var GarageDoors = require('../models/garage.doors');
 
-class toggleGarageDoor {
-    
-    constructor(){
-        console.log(routerController);
-        this.toggleGarageDoor();
-    }
+// POST /toggleGarageDoor
+router.post('/rest/toggleGarageDoor', function (req, res, next) {
+    res.status(200).json({
+        "Hello World": true
+    });
+});
 
-    toggleGarageDoor(){
-        router.post('/rest/toggleGarageDoor', function (req, res, next) {
-            res.status(200).json({
-                "Hello World": true
-            });
-        });
-    }
-}
-
-new toggleGarageDoor();
-
-
-
-// // POST /toggleGarageDoor
-// router.post('/rest/toggleGarageDoor', function (req, res, next) {
-//     res.status(200).json({
-//         "Hello World": true
-//     });
-// });
+module.exports = router;
