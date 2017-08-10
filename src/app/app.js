@@ -1,6 +1,7 @@
 // import Common from './common/common';
 import Components from './components/components';
 import AppComponent from './app.component';
+import Pages from './pages/pages';
 import UserService from './user/user.service';
 
 angular.module('app', [
@@ -8,7 +9,8 @@ angular.module('app', [
     'ngMessages',
     'ui.router',
     // Common,
-    Components
+    Components,
+    Pages
 ])
     .config(($locationProvider, $mdThemingProvider, $httpProvider) => {
         "ngInject";
