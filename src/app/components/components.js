@@ -1,3 +1,3 @@
-let componentModule = angular.module('app.components', []).name;
+let componentsModule = angular.module('app.components', []).name;
 
-export default componentModule;
+export default componentsModule;

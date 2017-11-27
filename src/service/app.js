@@ -13,7 +13,9 @@ var routes = [
 ];
 
 // mongodb connection
-mongoose.connect("mongodb://localhost:27017/gatekeeper");
+mongoose.connect("mongodb://mongo:27017/gatekeeper", {
+	useMongoClient: true
+});
 var db = mongoose.connection;
 // mongo error
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -62,6 +64,6 @@ app.use(function(err, req, res, next) {
 });
 
 // listen on port 3000
-app.listen(8082, function () {
-  console.log('Express app listening on port 8082');
+app.listen(8080, function () {
+  console.log('Express app listening on port 8080');
 });

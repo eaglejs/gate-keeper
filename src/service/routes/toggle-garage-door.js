@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
 var GarageDoors = require('../models/garage.doors');
+var RequiresLogin = require('../middleware/index.js');
 
 // POST /toggleGarageDoor
 router.post('/rest/toggleGarageDoor', function (req, res, next) {
