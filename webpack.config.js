@@ -3,57 +3,38 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: path.resolve(__dirname, 'src/app/app.js'),
     output: {
         path: path.resolve(__dirname, 'build'),
         chunkFilename: '[id].bundle.js',
         filename: '[name].bundle.js'
     },
     module: {
-        loaders: [
-            { test: /\.js$/, exclude: '/node_modules', loader: 'babel-loader' },
-            { test: /\.css$/, loaders: ['style-loader', 'css-loader'] },
-            { test: /\.scss$/, loaders: ['style-loader', 'css-loader', 'sass-loader'] },
-            { test: /\.html$/, loader: 'html', query: { minimize: true } },
-            { test: /\.json$/, loaders: ['json-loader'] },
-            { test: /\.(tff|otf|eot|svg|woff|woff2)(\?v=[0-9]\.[0-9])$/, loaders: ['file-loader'] },
+        rules: [
+            { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
+			{ test: /\.css$/, loaders: ['style-loader', 'css-loader'] },
+			{ test: /\.scss$/, loaders: ['style-loader', 'css-loader', 'sass-loader'] },
+			{ test: /\.html$/, loader: 'html-loader', query: { minimize: false } },
+			{ test: /\.json$/, loaders: ['json-loader'] },
+			{ test: /\.(eot|jpe?g|png|woff|woff2|eot|ttf|gif|svg)?(\?\S*)?$/, loader: 'url?limit=100000&name=[name].[ext]'}
         ]
     },
     resolve: {
-        extensions: ['', '.js', '.css', '.scss'],
-        root: [
-            path.join(__dirname, '/node_modules'),
-            path.join(__dirname, '/src/app/')
-        ],
+        extensions: ['.js', '.css', '.scss'],
         alias: {
-            'main': 'app.scss',
             'angularMaterialCSS': 'angular-material/angular-material.min.css'
         }
     },
-    htmlLoader: {
-        minimize: true,
-        remoteAttributeQuotes: false,
-        caseSensitive: true
-    },
-    jshint: {
-        esversion: 6,
-        emitErrors: true,
-        failOnHint: false
-    },
     entry: {
-        app: ['app.js'],
+        app: path.resolve(__dirname, 'src/app/app.js'),
         vendor: [
-            'jquery',
-            'lodash',
-            'bootstrap',
+            '@uirouter/angularjs',
             'angular',
-            'angular-ui-router',
+            'angular-material',
             'angular-messages',
-            'angular-material'
+            'lodash',
         ],
         styles: [
-            'angularMaterialCSS',
-            'main'
+            'angularMaterialCSS'
         ]
     },
     plugins: [
@@ -62,12 +43,7 @@ module.exports = {
             inject: 'body',
             hash: true
         }),
-        new webpack.ProvidePlugin({
-            $: "jquery",
-            jQuery: "jquery"
-        }),
         new webpack.optimize.CommonsChunkPlugin({ names: ['vendor', 'styles'], filenames: '[name].js', minChunks: Infinity }),
-        new webpack.optimize.DedupePlugin(),
         new webpack.optimize.LimitChunkCountPlugin({ maxChunks: 15 })
     ],
     devtool: 'inline-source-map',
@@ -76,14 +52,12 @@ module.exports = {
             color: true
         },
         host: '0.0.0.0',
-        //public: 'http://192.168.86.46:8080',
-        port: 8080,
+        port: 80,
         inline: true,
-        outputPath: 'build/',
         contentBase: 'build/',
         disableHostCheck: true,
         proxy: {
-            '*': 'http://0.0.0.0:8082'
+            '*': 'http://api:8080'
         }
     }
 };
