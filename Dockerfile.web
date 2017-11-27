@@ -1,0 +1,22 @@
+FROM node:latest
+
+MAINTAINER Joshua Eagle
+
+WORKDIR /root/
+
+# Update NPM
+RUN npm cache clean -f
+
+COPY . /root/gate-keeper
+
+WORKDIR /root/gate-keeper
+
+RUN npm install -g webpack-dev-server --silent
+
+RUN npm install --quiet
+
+ENV API_HOST api
+
+EXPOSE 80
+
+CMD ["npm", "start"]

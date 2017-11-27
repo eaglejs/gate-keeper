@@ -1,4 +1,5 @@
 .vscode/**
+mongodb/**
 node_modules/**
 build/**
 npm.log
