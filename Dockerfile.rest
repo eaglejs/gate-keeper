@@ -1,0 +1,15 @@
+FROM node:latest
+
+MAINTAINER Joshua Eagle
+
+WORKDIR /root/
+
+COPY . /root/gate-keeper
+
+WORKDIR /root/gate-keeper/
+
+RUN npm install -g nodemon --silent
+
+EXPOSE 8080
+
+CMD ["npm", "run", "start-be"]

@@ -10,8 +10,9 @@ services:
     ports:
       - 80:80
     restart: always
-  api:
-    image: gate-keeper/api:latest
+
+  rest:
+    image: gate-keeper/rest:latest
     volumes:
       - ./:/root/gate-keeper
       - node_modules:/root/gate-keeper/node_modules
@@ -20,6 +21,15 @@ services:
     restart: always
     depends_on:
       - mongo
+
+  api:
+    image: gate-keeper/api:latest
+    volumes:
+      - ./:/root/gate-keeper
+    restart: always
+    depends_on:
+      - rest
+
   mongo:
     image: mongo:latest
     volumes:

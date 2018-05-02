@@ -5,7 +5,7 @@ import garageController from './garage.controller';
 import './garage.scss';
 
 const garageComponent = {
-    retrict: 'E',
+    restrict: 'E',
     bindings: {},
     template,
     controller: garageController,

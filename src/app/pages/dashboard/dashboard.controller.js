@@ -24,7 +24,19 @@ class dashboardController {
         this.$scope.$on('$viewContentLoaded', () => { 
             this.model = this.userService.user;
         });
-    }
+	}
+	
+	toggleGarageDoor () {
+		this.$http({
+            method: 'post',
+            data: {toggleGarageDoor: true},
+            url: '/rest/toggleGarageDoor',
+        }).then(function successCallBack(response) {
+            console.log(response.data.tasks);
+        }.bind(this), function errorCallback(error) {
+            console.log(error);
+        });
+	}
 }
 
 dashboardController.$inject = ['$scope', '$http', '$state', 'userService', 'toolbarService'];

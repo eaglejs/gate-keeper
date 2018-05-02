@@ -57,7 +57,7 @@ module.exports = {
         contentBase: 'build/',
         disableHostCheck: true,
         proxy: {
-            '*': 'http://api:8080'
+            '*': 'http://rest:8080'
         }
     }
 };

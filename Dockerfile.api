@@ -1,4 +1,4 @@
-FROM node:latest
+FROM python:latest
 
 MAINTAINER Joshua Eagle
 
@@ -8,6 +8,10 @@ COPY . /root/gate-keeper
 
 WORKDIR /root/gate-keeper/
 
-EXPOSE 8080
+RUN pip install -r requirements.txt
 
-CMD ["npm", "run", "start-be"]
+WORKDIR /root/gate-keeper/src/python
+
+EXPOSE 5000
+
+CMD ["python", "app.py"]

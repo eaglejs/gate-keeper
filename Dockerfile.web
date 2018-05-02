@@ -13,7 +13,7 @@ WORKDIR /root/gate-keeper
 
 RUN npm install -g webpack-dev-server --silent
 
-RUN npm install --quiet
+RUN npm install --silent
 
 ENV API_HOST api
 
