@@ -5,12 +5,11 @@ import Login from './login/login';
 import Toolbar from './toolbar/toolbar';
 
 let pagesModule = angular.module('app.pages', [
-    Dashboard,
-    Garage,
-    Register,
-    Login,
-    Toolbar
-])
-    .name;
+    Dashboard.name,
+    Garage.name,
+    Register.name,
+    Login.name,
+    Toolbar.name
+]);
 
 export default pagesModule;

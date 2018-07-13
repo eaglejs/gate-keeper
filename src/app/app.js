@@ -8,11 +8,10 @@ angular.module('app', [
 	'ngMaterial',
 	'ngMessages',
 	'ui.router',
-	// Common,
-	Components,
-	Pages
+	Components.name,
+	Pages.name
 ])
-	.config(($locationProvider, $mdThemingProvider, $httpProvider) => {
+	.config(['$mdThemingProvider', ($mdThemingProvider) => {
 		"ngInject";
 
 		$mdThemingProvider.theme('docs-dark', 'default')
@@ -20,13 +19,12 @@ angular.module('app', [
 			.dark();
 
 		// $locationProvider.html5Mode(true).hashPrefix('!');
-	})
+	}])
 
 	.component('app', AppComponent)
 	.service('userService', UserService)
-	.run(($location, $rootScope, $state, $timeout, userService) => {
+	.run(['$location', '$rootScope', '$state', 'userService', ($location, $rootScope, $state, userService) => {
 		// enumerate routes that don't need authentication
-		let routesThatDontRequireAuth = ['/login', '/register'];
 		let routesAfterInitialSignup = ['/login'];
 
 		// check if current location matches route  
@@ -60,4 +58,4 @@ angular.module('app', [
 			});
 
 		});
-	});
+	}]);

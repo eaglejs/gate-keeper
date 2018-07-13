@@ -2,7 +2,16 @@ import PanelController from './panel/panel.controller';
 import PanelTemplate from './panel/panel.html';
 
 class toolbarController {
-    constructor($mdPanel, $http, $state, $timeout, $log, $mdSidenav, userService, toolbarService) {
+    constructor(
+		$mdPanel,
+		$http, 
+		$state, 
+		$timeout, 
+		$log, 
+		$mdSidenav, 
+		userService, 
+		toolbarService
+	) {
         this.name = 'toolbar';
         this.$mdPanel = $mdPanel;
         this.$http = $http;
@@ -89,8 +98,6 @@ class toolbarController {
     }
 
     showToolbarMenu($event, menu) {
-        let template = this.menuTemplate;
-
         let position = this.$mdPanel.newPanelPosition()
             .relativeTo($event.srcElement)
             .addPanelPosition(
@@ -124,6 +131,15 @@ class toolbarController {
 
 }
 
-toolbarController.$inject = ['$mdPanel', '$http', '$state', '$timeout', '$log', '$mdSidenav', 'userService', 'toolbarService'];
+toolbarController.$inject = [
+	'$mdPanel',
+	'$http',
+	'$state',
+	'$timeout',
+	'$log', 
+	'$mdSidenav',
+	'userService',
+	'toolbarService'
+];
 
 export default toolbarController;

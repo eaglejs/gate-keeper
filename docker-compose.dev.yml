@@ -9,7 +9,6 @@ services:
     volumes:
       - ./:/root/gate-keeper
       - /root/gate-keeper/node_modules
-      - node_modules:/root/gate-keeper/node_modules
     ports:
       - 80:80
     restart: always
@@ -22,7 +21,7 @@ services:
     image: gate-keeper/rest:latest
     volumes:
       - ./:/root/gate-keeper
-      - node_modules:/root/gate-keeper/node_modules
+      - /root/gate-keeper/node_modules
     ports:
       - 8080:8080
       - 9229:9229
@@ -50,6 +49,3 @@ services:
     ports:
       - 27017:27017
     restart: always
-
-volumes:
-  node_modules:

@@ -8,6 +8,8 @@ COPY . /root/gate-keeper
 
 WORKDIR /root/gate-keeper/
 
+RUN npm install --silent
+
 RUN npm install -g nodemon --silent
 
 EXPOSE 8080

@@ -5,7 +5,7 @@ let registerModule = angular.module('register', [
     'ui.router'
 ])
 
-    .config(($stateProvider, $urlRouterProvider) => {
+    .config(['$stateProvider', '$urlRouterProvider', ($stateProvider, $urlRouterProvider) => {
         "ngInject";
 
         $stateProvider
@@ -13,16 +13,15 @@ let registerModule = angular.module('register', [
                 url: '/register',
                 component: 'register',
                 resolve: {
-                    user: ($http, $state, userService) => {
+                    user: ['userService', (userService) => {
                         return userService.getUserInformation();
-                    }
+                    }]
                 }
             });
             
         $urlRouterProvider.otherwise('/login');
-    })
+    }])
     .component('register', registerComponent)
-    .component('toolbar', toolbarComponent)
-    .name;
+    .component('toolbar', toolbarComponent);
 
 export default registerModule;

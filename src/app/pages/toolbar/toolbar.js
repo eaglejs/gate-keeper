@@ -5,7 +5,6 @@ let toolbarModule = angular.module('toolbar', [
     'ui.router'
 ])
     .service(ToolbarService.id, ToolbarService)
-    .component(ToolbarComponent.id, ToolbarComponent)
-    .name;
+    .component(ToolbarComponent.id, ToolbarComponent);
 
 export default toolbarModule;

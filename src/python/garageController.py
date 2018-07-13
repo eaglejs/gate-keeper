@@ -1,7 +1,7 @@
 import sys
 import json
 
-# import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 
 # "relay_pin": 23,
 # "state_pin": 17,

@@ -37,7 +37,7 @@ module.exports = {
 			},
 			{
 				test: /\.(eot|jpe?g|png|woff|woff2|eot|ttf|gif|svg)?(\?\S*)?$/,
-				loader: 'url?limit=100000&name=[name].[ext]'
+				loader: 'url-loader?limit=100000&name=[name].[ext]'
 			}
 		]
 	},
@@ -48,7 +48,6 @@ module.exports = {
 		}
 	},
 	entry: {
-		app: path.resolve(__dirname, 'src/app/app.js'),
 		vendor: [
 			'@uirouter/angularjs',
 			'angular',
@@ -56,6 +55,7 @@ module.exports = {
 			'angular-messages',
 			'lodash',
 		],
+		app: path.resolve(__dirname, 'src/app/app.js'),
 		styles: [
 			'angularMaterialCSS'
 		]
