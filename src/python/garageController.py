@@ -9,7 +9,7 @@ import RPi.GPIO as GPIO
 
 
 class GarageController:
-    def __init__(self, selectedGarageDoor):
+    def __init__(self, selected_garage_door=0):
         self.relay_pin = 23
         self.state_pin = 17
         self.state_pin_closed_value = 0
@@ -31,5 +31,6 @@ class GarageController:
         # GPIO.output(self.relay_pin, False)
         # GPIO.output(self.relay_pin, True)
 
-    if __name__ == '__main__':
-        __init__()
+
+# if __name__ == '__main__':
+#     gc = GarageController()

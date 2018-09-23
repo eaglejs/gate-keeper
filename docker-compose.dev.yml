@@ -31,15 +31,17 @@ services:
 
   api:
     build:
-      context: .
-      dockerfile: Dockerfile.api
+        context: .
+        dockerfile: Dockerfile.api
     image: gate-keeper/api:latest
     volumes:
-      - ./:/root/gate-keeper
+        - ./:/root/gate-keeper
+    ports:
+        - 5000:5000
     restart: always
     depends_on:
-      - rest
-    
+        - rest
+
   mongo:
     image: mongo:latest
     volumes:

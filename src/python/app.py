@@ -1,8 +1,13 @@
 #!flask/bin/python
 from flask import Flask, jsonify
-import garageController as garageController
+from GarageController import GarageController
+IPCONFIG = '0.0.0.0'
 
 app = Flask(__name__)
+
+# app.debug = True
+
+gc = GarageController()
 
 tasks = [
     {
@@ -22,9 +27,9 @@ tasks = [
 
 @app.route('/api/toggleGarageDoor', methods=['GET'])
 def get_tasks():
-	
-    return jsonify({'door-status': garageController.GarageController()})
+
+    return jsonify({'door-status': gc.get_state()})
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host=IPCONFIG, debug=True)
