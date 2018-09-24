@@ -4,3 +4,4 @@ mongodb/**
 node_modules/**
 build/**
 npm.log
+*.pyc
